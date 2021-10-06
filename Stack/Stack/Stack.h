@@ -6,13 +6,15 @@ template<class T>
 class Stack : protected Vector<T> {
 public:
 	Stack();
+
 	int size() const;
 	bool empty() const;
+
 };
 
 template<class T>
 Stack<T>::Stack(): Vector<T>(){
-	std::cout << "StackÄ¬ÈÏ¹¹Ôì" << std::endl;
+	
 }
 
 template<class T>
