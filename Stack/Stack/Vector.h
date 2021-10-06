@@ -19,6 +19,8 @@ public:
 	Rank size() const;
 	bool empty() const;
 
+	Rank insert(T const& e, Rank r);
+	Rank insert(T const& e);
 };
 
 template<class T>
@@ -58,4 +60,19 @@ Rank Vector<T>::size() const {
 template<class T>
 bool Vector<T>::empty() const {
 	return !_size;
+}
+
+template<class T>
+Rank Vector<T>::insert(T const& e, Rank r) {
+	expand();
+	for (int i = _size; i > r; i--)
+		_elem[i] = _elem[i - 1];
+	_elem[r] = e;
+	_size++;
+	return r;
+}
+
+template<class T>
+Rank Vector<T>::insert(T const& e) {
+	return insert(e, _size);
 }

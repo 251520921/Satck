@@ -3,7 +3,8 @@
 
 int main() {
 	Stack<int> s;
-	std::cout << s.empty();
 	Vector<int> v;
-	v = s;
+	v.insert(3);
+	std::cout << s.empty();
+
 }
