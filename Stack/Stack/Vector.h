@@ -16,6 +16,8 @@ private:
 public:
 	Vector(int c = DEFAULT_CAPACITY, int s = 0, T const& e = 0);
 
+	T& operator[](Rank r) const;
+
 	Rank size() const;
 	bool empty() const;
 
@@ -24,6 +26,8 @@ public:
 	int remove(Rank lo, Rank hi);
 	T remove(Rank r);
 	int clear();
+
+	
 };
 
 template<class T>
@@ -53,6 +57,11 @@ Vector<T>::Vector(int c, int s, T const& e) {
 	_elem = new T[_capacity = c];
 	for (int i = 0; i < s; i++)
 		_elem[i] = e;
+}
+
+template<class T>
+T& Vector<T>::operator[](Rank r) const {
+	return _elem[r];
 }
 
 template<class T>
