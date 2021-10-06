@@ -3,9 +3,11 @@
 
 int main() {
 	Stack<int> s;
-	s.push(0);
-	s.push(1);
-	s.push(2);
-
-	s.pop();
+	int num = 4095;
+	while (num > 0) {
+		s.push(num % 2);
+		num /= 2;
+	}
+	while (!s.empty())
+		std::cout << s.pop();
 }
