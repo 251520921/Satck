@@ -14,16 +14,16 @@ private:
 	void expand();		//¿©»›
 	void shrink();		//Àı»›
 public:
-	Vector(int c = 0, int s = 0, T const& e = 0);
+	Vector(int c = DEFAULT_CAPACITY, int s = 0, T const& e = 0);
 
 	Rank size() const;
 	bool empty() const;
 
 	Rank insert(T const& e, Rank r);
 	Rank insert(T const& e);
-
 	int remove(Rank lo, Rank hi);
 	T remove(Rank r);
+	int clear();
 };
 
 template<class T>
@@ -94,4 +94,14 @@ T Vector<T>::remove(Rank r) {
 	T e = _elem[r];
 	remove(r, r + 1);
 	return e;
+}
+
+template<class T>
+int Vector<T>::clear() {
+	int oldSize = _size;
+	T* oldElem = _elem;
+	_elem = new T[_capacity = DEFAULT_CAPACITY];
+	delete[] oldElem;
+	_size = 0;
+	return oldSize;
 }

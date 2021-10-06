@@ -10,6 +10,8 @@ public:
 	int size() const;
 	bool empty() const;
 
+	void push(T const& e);
+	T	pop();
 };
 
 template<class T>
@@ -25,4 +27,14 @@ int Stack<T>::size()const {
 template<class T>
 bool Stack<T>::empty() const {
 	return Vector<T>::empty();
+}
+
+template<class T>
+void Stack<T>::push(T const& e) {
+	Vector<T>::insert(e);
+}
+
+template<class T>
+T Stack<T>::pop() {
+	return Vector<T>::remove(Vector<T>::_size - 1);
 }
